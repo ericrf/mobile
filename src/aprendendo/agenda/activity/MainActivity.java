@@ -1,8 +1,9 @@
-package aprendendo.agenda;
+package aprendendo.agenda.activity;
 
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
+import aprendendo.agenda.R;
 
 public class MainActivity extends Activity {
 
