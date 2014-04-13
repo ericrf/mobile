@@ -37,6 +37,9 @@ public class DiscadorFragment extends Fragment {
 		
 		ImageButton buttonCall = (ImageButton) rootView.findViewById(R.id.buttonCall);
 		buttonCall.setOnClickListener(makeCall);
+		
+		Button buttonCobrar = (Button) rootView.findViewById(R.id.buttonCobrar);
+		buttonCobrar.setOnClickListener(makeCallCobrar);
 
 		return rootView;
 	}
@@ -78,9 +81,24 @@ public class DiscadorFragment extends Fragment {
 
 			if (telNumber.length() != 0 && telNumber.length() >= 3) {
 				startActivity(new Intent(Intent.ACTION_CALL, 
-	                       Uri.parse("tel:" + telNumber)));
+	                       Uri.parse("tel: " + telNumber)));
 			}
 		}
 	};
+	
 
+	private OnClickListener makeCallCobrar = new OnClickListener() {
+		@Override
+		public void onClick(View v) {
+			TextView numberToCall = (TextView) getView().findViewById(
+					R.id.numberToCall);
+
+			String telNumber = numberToCall.getText().toString().trim();
+
+			if (telNumber.length() != 0 && telNumber.length() >= 3) {
+				startActivity(new Intent(Intent.ACTION_CALL, 
+	                       Uri.parse("tel: 9090" + telNumber)));
+			}
+		}
+	};
 }
