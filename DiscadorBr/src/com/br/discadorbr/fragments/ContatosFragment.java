@@ -93,6 +93,8 @@ public class ContatosFragment extends SherlockFragment {
 				.parse("tel:" + contactNumber)));
 	}
 
+	//TODO: analisar método
+	//TODO: ficar rico. lol
 	public void getContatos() {
 
 		ContentResolver cr = getActivity().getContentResolver();
