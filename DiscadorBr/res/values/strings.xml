@@ -15,6 +15,7 @@
     <string name="dialer_btt6">6</string>
     <string name="dialer_btt7">7</string>
     <string name="dialer_btt8">8</string>
-    <string name="dialer_btt9">9</string>  
+    <string name="dialer_btt9">9</string>
+    <string name="_cobrar">Á Cobrar</string>  
     
 </resources>
