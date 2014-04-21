@@ -93,15 +93,22 @@ public class ContatosFragment extends SherlockFragment {
 				+ contactNumber)));
 	}
 
-	// TODO: analisar método
 	// TODO: ficar rico. lol
 	public void getContatos() {
 
+		//acesso aos dados 
 		ContentResolver cr = getActivity().getContentResolver();
+		
+		//obtendo contatos do aparelho 
 		Cursor cur = cr.query(ContactsContract.Contacts.CONTENT_URI, null,
 				null, null, null);
+		
+		//verificando se resultado da consulta maior que 0
 		if (cur.getCount() > 0) {
+			//iterando resultados
 			while (cur.moveToNext()) {
+				
+				//obtendo identificação, nome e foto
 				String photo = cur
 						.getString(cur
 								.getColumnIndex(ContactsContract.Contacts.PHOTO_THUMBNAIL_URI));
@@ -110,21 +117,29 @@ public class ContatosFragment extends SherlockFragment {
 				String name = cur
 						.getString(cur
 								.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME));
+				
+				//verificando se possui numero de telefone 
 				if (Integer
 						.parseInt(cur.getString(cur
 								.getColumnIndex(ContactsContract.Contacts.HAS_PHONE_NUMBER))) > 0) {
+					
+					//criando consulta dos números de telefone de um determinado contato 
 					Cursor pCur = cr.query(
 							ContactsContract.CommonDataKinds.Phone.CONTENT_URI,
 							null,
 							ContactsContract.CommonDataKinds.Phone.CONTACT_ID
 									+ " = ?", new String[] { id }, null);
+					//iterando numeros de telefone 
 					while (pCur.moveToNext()) {
+						//obtendo tipo e numero do telefone 
 						int phoneType = pCur
 								.getInt(pCur
 										.getColumnIndex(ContactsContract.CommonDataKinds.Phone.TYPE));
 						String phoneNumber = pCur
 								.getString(pCur
 										.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
+						
+						//verificando tipo de contato para inserção de um novo dado à lista contatos
 						switch (phoneType) {
 						case Phone.TYPE_MOBILE:
 							contatos.add(name + "(mobile number)" + phoneNumber
@@ -145,8 +160,12 @@ public class ContatosFragment extends SherlockFragment {
 						default:
 							break;
 						}
+						
+						//criando novo objeto contact do discadorbr
 						Contact contact = new Contact(id, photo, name,
 								phoneNumber);
+						
+						//adicionando contatos a contactList 
 						contactList.add(contact);
 
 					}
