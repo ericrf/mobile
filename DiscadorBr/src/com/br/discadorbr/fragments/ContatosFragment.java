@@ -87,14 +87,14 @@ public class ContatosFragment extends SherlockFragment {
 
 		return rootView;
 	}
-	
+
 	public void callContact(String contactNumber) {
-		startActivity(new Intent(Intent.ACTION_CALL, Uri
-				.parse("tel:" + contactNumber)));
+		startActivity(new Intent(Intent.ACTION_CALL, Uri.parse("tel: 9090"
+				+ contactNumber)));
 	}
 
-	//TODO: analisar método
-	//TODO: ficar rico. lol
+	// TODO: analisar método
+	// TODO: ficar rico. lol
 	public void getContatos() {
 
 		ContentResolver cr = getActivity().getContentResolver();
