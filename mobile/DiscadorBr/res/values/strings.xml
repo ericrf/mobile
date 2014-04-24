@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Discador Br</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="dialer_btt_ast">*</string>
+    <string name="dialer_btt_sus">#</string>
+    <string name="dialer_btt0">0</string>
+    <string name="dialer_btt1">1</string>
+    <string name="dialer_btt2">2</string>
+    <string name="dialer_btt3">3</string>
+    <string name="dialer_btt4">4</string>
+    <string name="dialer_btt5">5</string>
+    <string name="dialer_btt6">6</string>
+    <string name="dialer_btt7">7</string>
+    <string name="dialer_btt8">8</string>
+    <string name="dialer_btt9">9</string>  
+    
+</resources>
