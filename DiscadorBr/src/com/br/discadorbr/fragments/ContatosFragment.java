@@ -13,9 +13,11 @@ import android.provider.ContactsContract;
 import android.provider.ContactsContract.CommonDataKinds.Phone;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.Button;
 import android.widget.ListView;
 
 import com.actionbarsherlock.app.SherlockFragment;
@@ -52,6 +54,7 @@ public class ContatosFragment extends SherlockFragment {
 		 */
 
 		ListView list = (ListView) rootView.findViewById(R.id.listView1);
+		Button addBtt = (Button) rootView.findViewById(R.id.addBtt);
 
 		// Getting adapter by passing xml data ArrayList
 		ContactView adapter = new ContactView(getSherlockActivity(),
@@ -87,28 +90,21 @@ public class ContatosFragment extends SherlockFragment {
 
 		return rootView;
 	}
-
+	
 	public void callContact(String contactNumber) {
-		startActivity(new Intent(Intent.ACTION_CALL, Uri.parse("tel: 9090"
-				+ contactNumber)));
+		startActivity(new Intent(Intent.ACTION_CALL, Uri
+				.parse("tel:" + contactNumber)));
 	}
 
-	// TODO: ficar rico. lol
+	//TODO: analisar método
+	//TODO: ficar rico. lol
 	public void getContatos() {
 
-		//acesso aos dados 
 		ContentResolver cr = getActivity().getContentResolver();
-		
-		//obtendo contatos do aparelho 
 		Cursor cur = cr.query(ContactsContract.Contacts.CONTENT_URI, null,
 				null, null, null);
-		
-		//verificando se resultado da consulta maior que 0
 		if (cur.getCount() > 0) {
-			//iterando resultados
 			while (cur.moveToNext()) {
-				
-				//obtendo identificação, nome e foto
 				String photo = cur
 						.getString(cur
 								.getColumnIndex(ContactsContract.Contacts.PHOTO_THUMBNAIL_URI));
@@ -117,29 +113,21 @@ public class ContatosFragment extends SherlockFragment {
 				String name = cur
 						.getString(cur
 								.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME));
-				
-				//verificando se possui numero de telefone 
 				if (Integer
 						.parseInt(cur.getString(cur
 								.getColumnIndex(ContactsContract.Contacts.HAS_PHONE_NUMBER))) > 0) {
-					
-					//criando consulta dos números de telefone de um determinado contato 
 					Cursor pCur = cr.query(
 							ContactsContract.CommonDataKinds.Phone.CONTENT_URI,
 							null,
 							ContactsContract.CommonDataKinds.Phone.CONTACT_ID
 									+ " = ?", new String[] { id }, null);
-					//iterando numeros de telefone 
 					while (pCur.moveToNext()) {
-						//obtendo tipo e numero do telefone 
 						int phoneType = pCur
 								.getInt(pCur
 										.getColumnIndex(ContactsContract.CommonDataKinds.Phone.TYPE));
 						String phoneNumber = pCur
 								.getString(pCur
 										.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
-						
-						//verificando tipo de contato para inserção de um novo dado à lista contatos
 						switch (phoneType) {
 						case Phone.TYPE_MOBILE:
 							contatos.add(name + "(mobile number)" + phoneNumber
@@ -160,12 +148,8 @@ public class ContatosFragment extends SherlockFragment {
 						default:
 							break;
 						}
-						
-						//criando novo objeto contact do discadorbr
 						Contact contact = new Contact(id, photo, name,
 								phoneNumber);
-						
-						//adicionando contatos a contactList 
 						contactList.add(contact);
 
 					}
@@ -214,5 +198,14 @@ public class ContatosFragment extends SherlockFragment {
 	 * 
 	 * }
 	 */
+	
+	private OnClickListener addContact = new OnClickListener() {
+		@Override
+		public void onClick(View v) {
+			 Intent intent = new Intent(Intent.ACTION_INSERT, 
+                     ContactsContract.Contacts.CONTENT_URI);
+			 startActivity(intent);
+		}
+	};
 
 }
