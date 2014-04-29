@@ -1,6 +1,5 @@
 package com.br.discadorbr;
 
-import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
@@ -10,8 +9,6 @@ import com.actionbarsherlock.app.ActionBar.Tab;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.br.discador.R;
 import com.br.discadorbr.adapter.TabsPagerAdapter;
-import com.br.discadorbr.dao.PrefixoDataAccessObject;
-import com.br.discadorbr.model.Prefixo;
 
 public class MainActivity extends SherlockFragmentActivity implements ActionBar.TabListener {
     private ViewPager viewPager;
@@ -27,26 +24,7 @@ public class MainActivity extends SherlockFragmentActivity implements ActionBar.
 
         getSupportActionBar().setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
         ActionBar actionBar = getSupportActionBar();
-        
-        
-        try{
-        	Prefixo prefixo = new Prefixo("Á Cobrar", 9090, "Insere prefixo 9090 antes do número");        
-        	PrefixoDataAccessObject dao = new PrefixoDataAccessObject(getApplicationContext());
-        	
-        	long insert = dao.insert(prefixo);
-        	
-        	Cursor cursor = dao.findAll();
-        	int count = cursor.getCount();
-        	while (cursor.moveToNext()) {
-        		String string = cursor.getString(cursor.getColumnIndex("label"));
-        	}        	
-        }catch(Exception e){
-        	e.printStackTrace();
-        }
-        
        
-        //dao.insert(prefixo);
-        
 
 
      /*    ActionBar.Tab tabDiscador = getSupportActionBar().newTab();

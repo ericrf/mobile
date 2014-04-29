@@ -50,6 +50,9 @@ public class Prefixo {
 	public void setDefault(boolean isSelected) {
 		this.isDefault = isSelected;
 	}
+	public void setIsDefault(boolean isDefault) {
+		this.isDefault = isDefault;
+	}
 	
 	
 }

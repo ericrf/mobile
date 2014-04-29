@@ -83,7 +83,7 @@ public class PrefixoDao extends SQLiteOpenHelper {
 		prefixo.setLabel(cursor.getString(1));
 		prefixo.setNumero(cursor.getInt(2));
 		prefixo.setDescricao(cursor.getString(3));
-		prefixo.setIsDefault(cursor.getInt(4));
+		prefixo.setIsDefault(Boolean.valueOf(String.valueOf(cursor.getInt(4))));
 
 		return prefixo;
 	}
@@ -104,7 +104,7 @@ public class PrefixoDao extends SQLiteOpenHelper {
 		prefixo.setLabel(cursor.getString(1));
 		prefixo.setNumero(cursor.getInt(2));
 		prefixo.setDescricao(cursor.getString(3));
-		prefixo.setIsDefault(cursor.getInt(4));
+		prefixo.setIsDefault(Boolean.valueOf(String.valueOf(cursor.getInt(4))));
 
 		return prefixo;
 	}
@@ -126,7 +126,7 @@ public class PrefixoDao extends SQLiteOpenHelper {
 				prefixo.setLabel(cursor.getString(1));
 				prefixo.setNumero(cursor.getInt(2));
 				prefixo.setDescricao(cursor.getString(3));
-				prefixo.setIsDefault(cursor.getInt(4));
+				prefixo.setIsDefault(Boolean.valueOf(String.valueOf(cursor.getInt(4))));
 
 				// Adding Prefixo to list
 				prefixoList.add(prefixo);
@@ -186,7 +186,7 @@ public class PrefixoDao extends SQLiteOpenHelper {
 				prefixo.setLabel(cursor.getString(1));
 				prefixo.setNumero(cursor.getInt(2));
 				prefixo.setDescricao(cursor.getString(3));
-				prefixo.setIsDefault(cursor.getInt(4));
+				prefixo.setIsDefault(Boolean.valueOf(String.valueOf(cursor.getInt(4))));
 
 				prefixoList.add(prefixo);
 			} while (cursor.moveToNext());
@@ -205,7 +205,7 @@ public class PrefixoDao extends SQLiteOpenHelper {
 		values.put(KEY_NUMERO, prefixo.getNumero());
 		values.put(KEY_LABEL, prefixo.getLabel());
 		values.put(KEY_DESCRICAO, prefixo.getDescricao());
-		values.put(KEY_ISDEFAULT, prefixo.getIsDefault());
+		values.put(KEY_ISDEFAULT, String.valueOf(prefixo.isDefault()));
 		
 		return values;
 	}

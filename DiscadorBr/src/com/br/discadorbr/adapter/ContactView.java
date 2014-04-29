@@ -44,9 +44,9 @@ public class ContactView extends BaseAdapter {
 		if (view == null) 
 			view = inflater.inflate(R.layout.contact_list, null);
 		
-		TextView contactTextView = (TextView) view.findViewById(R.id.title);
-		TextView numberTextView = (TextView) view.findViewById(R.id.artist); 
-		ImageView thumbImageView = (ImageView) view.findViewById(R.id.list_image);
+		TextView contactTextView = (TextView) view.findViewById(R.id.name);
+		TextView numberTextView = (TextView) view.findViewById(R.id.number); 
+		ImageView thumbImageView = (ImageView) view.findViewById(R.id.thumb);
 
 		Contact contact = list.get(position);
 
