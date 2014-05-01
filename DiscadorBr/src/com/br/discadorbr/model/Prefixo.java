@@ -5,12 +5,19 @@ public class Prefixo {
 	private String label;
 	private int numero;
 	private String descricao;
-	private boolean isDefault;
+	private int isDefault;
 
 	public Prefixo(String label, int numero, String descricao){
 		this.label = label;
 		this.numero = numero;
 		this.descricao = descricao;
+	}
+	public Prefixo(int id, String label, int numero, String descricao, int isDefault){
+		this.id = id;
+		this.label = label;
+		this.numero = numero;
+		this.descricao = descricao;
+		this.isDefault = isDefault;
 	}
 	public Prefixo(String label, int numero){
 		this.label = label;
@@ -19,7 +26,10 @@ public class Prefixo {
 	public Prefixo() {
 		this(null,0,null);
 	}
-	
+	public Prefixo(int numero) {
+		this.numero = numero;
+	}
+
 	public int getId() {
 		return id;
 	}
@@ -44,12 +54,12 @@ public class Prefixo {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-	public boolean isDefault() {
+	public int getIsDefault() {
 		return isDefault;
 	}
-	public void setDefault(boolean isSelected) {
+	public void setIsDefault(int isSelected) {
 		this.isDefault = isSelected;
 	}
-	
-	
+
+
 }
