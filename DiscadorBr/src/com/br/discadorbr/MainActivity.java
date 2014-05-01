@@ -24,7 +24,7 @@ public class MainActivity extends SherlockFragmentActivity implements ActionBar.
 
         getSupportActionBar().setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
         ActionBar actionBar = getSupportActionBar();
-        
+       
 
 
      /*    ActionBar.Tab tabDiscador = getSupportActionBar().newTab();

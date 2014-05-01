@@ -8,6 +8,9 @@
 package com.br.discador;
 
 public final class R {
+    public static final class array {
+        public static final int contact_filter=0x7f0b0000;
+    }
     public static final class attr {
         /**  Custom divider drawable to use for elements in the action bar. 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
@@ -917,7 +920,7 @@ containing a value of this type.
         public static final int undo=0x7f020074;
     }
     public static final class id {
-        public static final int ContactList=0x7f04003a;
+        public static final int ContactList=0x7f04003c;
         public static final int abs__action_bar=0x7f040020;
         public static final int abs__action_bar_container=0x7f04001f;
         public static final int abs__action_bar_subtitle=0x7f040011;
@@ -957,43 +960,46 @@ containing a value of this type.
         public static final int abs__textButton=0x7f040013;
         public static final int abs__title=0x7f04001b;
         public static final int abs__up=0x7f04000b;
-        public static final int action_settings=0x7f040051;
-        public static final int artist=0x7f040039;
-        public static final int button0=0x7f04004b;
-        public static final int button1=0x7f04003e;
-        public static final int button2=0x7f04003f;
-        public static final int button3=0x7f040040;
-        public static final int button4=0x7f040042;
-        public static final int button5=0x7f040044;
-        public static final int button6=0x7f040043;
-        public static final int button7=0x7f040046;
-        public static final int button8=0x7f040047;
-        public static final int button9=0x7f040048;
-        public static final int buttonAst=0x7f04004a;
-        public static final int buttonCall=0x7f04004f;
-        public static final int buttonCobrar=0x7f04004e;
-        public static final int buttonSus=0x7f04004c;
-        public static final int buttonUndo=0x7f040050;
+        public static final int action_settings=0x7f040054;
+        public static final int addBtt=0x7f04003d;
+        public static final int button0=0x7f04004e;
+        public static final int button1=0x7f040041;
+        public static final int button2=0x7f040042;
+        public static final int button3=0x7f040043;
+        public static final int button4=0x7f040045;
+        public static final int button5=0x7f040047;
+        public static final int button6=0x7f040046;
+        public static final int button7=0x7f040049;
+        public static final int button8=0x7f04004a;
+        public static final int button9=0x7f04004b;
+        public static final int buttonAst=0x7f04004d;
+        public static final int buttonCall=0x7f040052;
+        public static final int buttonCobrar=0x7f040051;
+        public static final int buttonSus=0x7f04004f;
+        public static final int buttonUndo=0x7f040053;
         public static final int date=0x7f040036;
         public static final int disableHome=0x7f040009;
         public static final int duration=0x7f040037;
         public static final int edit_query=0x7f040026;
         public static final int homeAsUp=0x7f040006;
-        public static final int linearLayout1=0x7f04003d;
-        public static final int linearLayout2=0x7f040041;
-        public static final int linearLayout3=0x7f040045;
-        public static final int linearLayout4=0x7f040049;
-        public static final int linearLayout5=0x7f04004d;
+        public static final int linearLayout1=0x7f040040;
+        public static final int linearLayout2=0x7f040044;
+        public static final int linearLayout3=0x7f040048;
+        public static final int linearLayout4=0x7f04004c;
+        public static final int linearLayout5=0x7f040050;
         public static final int listMode=0x7f040002;
-        public static final int listView1=0x7f04003b;
+        public static final int listView1=0x7f04003e;
         public static final int list_image=0x7f040034;
+        public static final int name=0x7f04003a;
         public static final int normal=0x7f040001;
-        public static final int numberToCall=0x7f04003c;
+        public static final int number=0x7f04003b;
+        public static final int numberToCall=0x7f04003f;
         public static final int pager=0x7f040032;
         public static final int showCustom=0x7f040008;
         public static final int showHome=0x7f040005;
         public static final int showTitle=0x7f040007;
         public static final int tabMode=0x7f040003;
+        public static final int thumb=0x7f040039;
         public static final int thumbnail=0x7f040033;
         public static final int title=0x7f040035;
         public static final int type=0x7f040038;
@@ -1035,7 +1041,7 @@ containing a value of this type.
         public static final int sherlock_spinner_item=0x7f03001c;
     }
     public static final class menu {
-        public static final int main=0x7f0b0000;
+        public static final int main=0x7f0c0000;
     }
     public static final class string {
         /**  Content description for the action bar "home" affordance. [CHAR LIMIT=NONE] 
@@ -1091,17 +1097,20 @@ containing a value of this type.
         public static final int dialer_btt9=0x7f09001b;
         public static final int dialer_btt_ast=0x7f090010;
         public static final int dialer_btt_sus=0x7f090011;
+        public static final int filtrar=0x7f09001c;
         public static final int hello_world=0x7f09000f;
     }
     public static final class style {
         /** 
         Base application theme, dependent on API level. This theme is replaced
         by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+
     
 
             Theme customizations available in newer API levels can go in
             res/values-vXX/styles.xml, while customizations related to
             backward-compatibility can go here.
+
         
 
         Base application theme for API 11+. This theme completely replaces
@@ -1117,7 +1126,6 @@ containing a value of this type.
          */
         public static final int AppBaseTheme=0x7f0a0059;
         /**  Application theme. 
- All customizations that are NOT specific to a particular API-level can go here. 
          */
         public static final int AppTheme=0x7f0a005a;
         public static final int Sherlock___TextAppearance_Small=0x7f0a0046;
@@ -1209,6 +1217,7 @@ containing a value of this type.
         public static final int Widget_Sherlock_SearchAutoCompleteTextView=0x7f0a0034;
         public static final int Widget_Sherlock_Spinner_DropDown_ActionBar=0x7f0a0024;
         public static final int Widget_Sherlock_TextView_SpinnerItem=0x7f0a0032;
+        public static final int buttonBlue=0x7f0a005b;
     }
     public static final class styleable {
         /**  Attributes used to style the Action Bar. 

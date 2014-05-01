@@ -17,4 +17,11 @@
     <string name="dialer_btt8">8</string>
     <string name="dialer_btt9">9</string>  
     
+    <string-array name="contact_filter">
+        <item>Por nome</item>
+        <item>Por Data</item>
+
+    </string-array>
+        <string name="filtrar">Filtrar</string>
+    
 </resources>
