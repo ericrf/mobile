@@ -960,7 +960,7 @@ containing a value of this type.
         public static final int abs__textButton=0x7f040013;
         public static final int abs__title=0x7f04001b;
         public static final int abs__up=0x7f04000b;
-        public static final int action_settings=0x7f04005b;
+        public static final int action_settings=0x7f04005e;
         public static final int addBtt=0x7f04003d;
         public static final int btnIncluirPrefixo=0x7f040041;
         public static final int button0=0x7f04004e;
@@ -999,6 +999,9 @@ containing a value of this type.
         public static final int number=0x7f04003b;
         public static final int numberToCall=0x7f04003f;
         public static final int pager=0x7f040032;
+        public static final int prefixo_label=0x7f04005d;
+        public static final int prefixo_number=0x7f04005c;
+        public static final int prefixos=0x7f04005b;
         public static final int showCustom=0x7f040008;
         public static final int showHome=0x7f040005;
         public static final int showTitle=0x7f040007;
@@ -1045,8 +1048,9 @@ containing a value of this type.
         public static final int fragment_discador=0x7f030019;
         public static final int fragment_prefixos=0x7f03001a;
         public static final int fragment_registros=0x7f03001b;
-        public static final int sherlock_spinner_dropdown_item=0x7f03001c;
-        public static final int sherlock_spinner_item=0x7f03001d;
+        public static final int prefixos_listview_template=0x7f03001c;
+        public static final int sherlock_spinner_dropdown_item=0x7f03001d;
+        public static final int sherlock_spinner_item=0x7f03001e;
     }
     public static final class menu {
         public static final int main=0x7f0c0000;

@@ -10,12 +10,12 @@ import com.br.discador.R;
 import com.br.discadorbr.dao.PrefixoDao;
 import com.br.discadorbr.model.Prefixo;
 
-public class BtnIncluirPrefixoOnClickListener implements OnClickListener {
+public class IncluirPrefixoOnClickListener implements OnClickListener {
 
 	private SherlockFragmentActivity activity;
 	private View rootView;
 
-	public BtnIncluirPrefixoOnClickListener(SherlockFragmentActivity activity, View rootView) {
+	public IncluirPrefixoOnClickListener(SherlockFragmentActivity activity, View rootView) {
 		this.activity = activity;
 		this.rootView = rootView;
 	}
