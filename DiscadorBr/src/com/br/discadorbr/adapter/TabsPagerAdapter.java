@@ -1,12 +1,12 @@
 package com.br.discadorbr.adapter;
 
-import com.br.discadorbr.fragments.ContatosFragment;
-import com.br.discadorbr.fragments.DiscadorFragment;
-import com.br.discadorbr.fragments.RegistrosFragment;
-
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
+
+import com.br.discadorbr.fragments.ContatosFragment;
+import com.br.discadorbr.fragments.DiscadorFragment;
+import com.br.discadorbr.fragments.PrefixosFragment;
 
 public class TabsPagerAdapter extends FragmentStatePagerAdapter {
 
@@ -23,7 +23,7 @@ public class TabsPagerAdapter extends FragmentStatePagerAdapter {
 			return new DiscadorFragment();
 		case 1:
 			// Games fragment activity
-			return new RegistrosFragment();
+			return new PrefixosFragment();
 		case 2:
 			// Movies fragment activity
 			return new ContatosFragment();

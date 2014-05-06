@@ -38,9 +38,11 @@ public class PrefixoDao extends SQLiteOpenHelper {
 	@Override
 	public void onCreate(SQLiteDatabase db) {
 		String CREATE_ClientS_TABLE = "CREATE TABLE " + TABLE_PREFIXO + "("
-				+ KEY_ID + " INTEGER PRIMARY KEY," + KEY_LABEL + " TEXT,"
-				+ KEY_NUMERO + " INTEGER, " + KEY_DESCRICAO +  KEY_ISDEFAULT + " INTEGER" + ")";
+				+ KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + KEY_LABEL + " TEXT,"
+				+ KEY_NUMERO + " INTEGER, " + KEY_DESCRICAO +" TEXT, " + KEY_ISDEFAULT + " INTEGER" + ")";
+		
 		db.execSQL(CREATE_ClientS_TABLE);
+
 	}
 
 	// Upgrading database
@@ -113,7 +115,7 @@ public class PrefixoDao extends SQLiteOpenHelper {
 	public List<Prefixo> getAll() {
 		List<Prefixo> prefixoList = new ArrayList<Prefixo>();
 		// Select All Query
-		String selectQuery = "SELECT  * FROM " + TABLE_PREFIXO + " ORDER BY " + KEY_ID +" ASC";
+		String selectQuery = "SELECT * FROM " + TABLE_PREFIXO + " ORDER BY " + KEY_ID +" ASC";
 
 		SQLiteDatabase db = this.getWritableDatabase();
 		Cursor cursor = db.rawQuery(selectQuery, null);

@@ -960,10 +960,10 @@ containing a value of this type.
         public static final int abs__textButton=0x7f040013;
         public static final int abs__title=0x7f04001b;
         public static final int abs__up=0x7f04000b;
-        public static final int action_settings=0x7f040054;
+        public static final int action_settings=0x7f04005b;
         public static final int addBtt=0x7f04003d;
+        public static final int btnIncluirPrefixo=0x7f040041;
         public static final int button0=0x7f04004e;
-        public static final int button1=0x7f040041;
         public static final int button2=0x7f040042;
         public static final int button3=0x7f040043;
         public static final int button4=0x7f040045;
@@ -977,11 +977,15 @@ containing a value of this type.
         public static final int buttonCobrar=0x7f040051;
         public static final int buttonSus=0x7f04004f;
         public static final int buttonUndo=0x7f040053;
+        public static final int checkIsDefault=0x7f04005a;
         public static final int date=0x7f040036;
         public static final int disableHome=0x7f040009;
         public static final int duration=0x7f040037;
         public static final int edit_query=0x7f040026;
         public static final int homeAsUp=0x7f040006;
+        public static final int labelDescricao=0x7f040058;
+        public static final int labelLabel=0x7f040054;
+        public static final int labelNumero=0x7f040056;
         public static final int linearLayout1=0x7f040040;
         public static final int linearLayout2=0x7f040044;
         public static final int linearLayout3=0x7f040048;
@@ -1002,6 +1006,9 @@ containing a value of this type.
         public static final int thumb=0x7f040039;
         public static final int thumbnail=0x7f040033;
         public static final int title=0x7f040035;
+        public static final int txtDescricao=0x7f040059;
+        public static final int txtLabel=0x7f040055;
+        public static final int txtNumber=0x7f040057;
         public static final int type=0x7f040038;
         public static final int useLogo=0x7f040004;
         public static final int wrap_content=0x7f040000;
@@ -1036,9 +1043,10 @@ containing a value of this type.
         public static final int contact_list=0x7f030017;
         public static final int fragment_contatos=0x7f030018;
         public static final int fragment_discador=0x7f030019;
-        public static final int fragment_registros=0x7f03001a;
-        public static final int sherlock_spinner_dropdown_item=0x7f03001b;
-        public static final int sherlock_spinner_item=0x7f03001c;
+        public static final int fragment_prefixos=0x7f03001a;
+        public static final int fragment_registros=0x7f03001b;
+        public static final int sherlock_spinner_dropdown_item=0x7f03001c;
+        public static final int sherlock_spinner_item=0x7f03001d;
     }
     public static final class menu {
         public static final int main=0x7f0c0000;

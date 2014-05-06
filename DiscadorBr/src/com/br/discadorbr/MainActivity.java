@@ -14,7 +14,7 @@ public class MainActivity extends SherlockFragmentActivity implements ActionBar.
     private ViewPager viewPager;
 	private TabsPagerAdapter mAdapter;
 	// Tab titles
-		private String[] tabs = { "Discador", "Registros", "Contatos" };
+		private String[] tabs = { "Discador", "Prefixos", "Contatos" };
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -23,32 +23,7 @@ public class MainActivity extends SherlockFragmentActivity implements ActionBar.
         setContentView(R.layout.activity_main);
 
         getSupportActionBar().setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
-        ActionBar actionBar = getSupportActionBar();
-       
-
-
-     /*    ActionBar.Tab tabDiscador = getSupportActionBar().newTab();
-            tabDiscador.setText("Discar");
-            tabDiscador.setTabListener(this);
-            getSupportActionBar().addTab(tabDiscador);
-  
-            ActionBar.Tab tabRegistros = getSupportActionBar().newTab();
-            tabRegistros.setText("Registros");
-            tabRegistros.setTabListener(this);
-            getSupportActionBar().addTab(tabRegistros);
-            
-            ActionBar.Tab tabContatos = getSupportActionBar().newTab();
-            tabContatos.setText("Contatos");
-            tabContatos.setTabListener(this);
-            getSupportActionBar().addTab(tabContatos);
-            
-            //set individual tab color and background image
-          //  final View firstCustomView = new View(this);
-           // firstCustomView.setBackgroundColor(Color.BLUE); 
-          //  firstCustomView.setBackgroundResource(drawable.btn_star_big_on);
-        //    tabDiscador.setCustomView(firstCustomView);  */
-        
-        
+        ActionBar actionBar = getSupportActionBar();  
         
 		viewPager = (ViewPager) findViewById(R.id.pager);
 		mAdapter = new TabsPagerAdapter(getSupportFragmentManager());
