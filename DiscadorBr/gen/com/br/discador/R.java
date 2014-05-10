@@ -1043,14 +1043,15 @@ containing a value of this type.
         public static final int abs__simple_dropdown_hint=0x7f030014;
         public static final int activity_main=0x7f030015;
         public static final int call_log=0x7f030016;
-        public static final int contact_list=0x7f030017;
-        public static final int fragment_contatos=0x7f030018;
-        public static final int fragment_discador=0x7f030019;
-        public static final int fragment_prefixos=0x7f03001a;
-        public static final int fragment_registros=0x7f03001b;
-        public static final int prefixos_listview_template=0x7f03001c;
-        public static final int sherlock_spinner_dropdown_item=0x7f03001d;
-        public static final int sherlock_spinner_item=0x7f03001e;
+        public static final int collapsible_edittext=0x7f030017;
+        public static final int contact_list=0x7f030018;
+        public static final int fragment_contatos=0x7f030019;
+        public static final int fragment_discador=0x7f03001a;
+        public static final int fragment_prefixos=0x7f03001b;
+        public static final int fragment_registros=0x7f03001c;
+        public static final int prefixos_listview_template=0x7f03001d;
+        public static final int sherlock_spinner_dropdown_item=0x7f03001e;
+        public static final int sherlock_spinner_item=0x7f03001f;
     }
     public static final class menu {
         public static final int main=0x7f0c0000;

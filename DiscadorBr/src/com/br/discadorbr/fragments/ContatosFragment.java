@@ -32,7 +32,7 @@ public class ContatosFragment extends SherlockFragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-
+		
 		rootView = inflater.inflate(R.layout.fragment_contatos, container,
 				false);
 		getContatos();

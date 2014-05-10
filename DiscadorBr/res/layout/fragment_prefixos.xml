@@ -4,22 +4,19 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
-    
     <!-- FORMULARIO PREFIXO -->
-    
+
     <TextView
         android:id="@+id/labelLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Label:" 
-        android:visibility="invisible"/>
+        android:text="Label:" />
 
     <EditText
         android:id="@+id/txtLabel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10" 
-        android:visibility="invisible">
+        android:ems="10" >
 
         <requestFocus />
     </EditText>
@@ -28,57 +25,52 @@
         android:id="@+id/labelNumero"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Número:" 
-        android:visibility="invisible"/>
+        android:text="Número:" />
 
     <EditText
         android:id="@+id/txtNumber"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="number"
-        android:visibility="invisible" />
+        android:inputType="number" />
 
     <TextView
         android:id="@+id/labelDescricao"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Descrição:"
-        android:visibility="invisible" />
+        android:text="Descrição:" />
 
     <EditText
         android:id="@+id/txtDescricao"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textMultiLine"
-        android:visibility="invisible" />
+        android:inputType="textMultiLine" />
 
     <CheckBox
         android:id="@+id/checkIsDefault"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Default"
-        android:visibility="invisible" />
+        android:text="Default" />
 
     <Button
         android:id="@+id/btnIncluirPrefixo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Incluir"
-        android:visibility="invisible" />
-    
-    
+        android:text="Incluir" />
+
     <!-- FIM FORMULARIO PREFIXO -->
-    
+
+
     <!-- LISTA PREFIXO -->
+
     <ListView
         android:id="@+id/prefixos"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true" >
-    </ListView>    
+    </ListView>
     <!-- FIM LISTA PREFIXO -->
 
 </LinearLayout>

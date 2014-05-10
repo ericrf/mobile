@@ -16,7 +16,7 @@ import com.br.discadorbr.model.Prefixo;
 public class PrefixosListViewBaseAdapter extends BaseAdapter {
 
 	private List<Prefixo> prefixos;
-	private static LayoutInflater inflater;
+	private LayoutInflater inflater;
 	
 	public PrefixosListViewBaseAdapter(Activity activity, List<Prefixo> prefixos) {
 		this.prefixos = prefixos;
@@ -35,7 +35,7 @@ public class PrefixosListViewBaseAdapter extends BaseAdapter {
 
 	@Override
 	public long getItemId(int position) {
-		return position;
+		return prefixos.get(position).getId();
 	}
 
 	@Override

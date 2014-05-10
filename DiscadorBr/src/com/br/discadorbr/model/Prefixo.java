@@ -53,6 +53,4 @@ public class Prefixo {
 	public void setIsDefault(boolean isDefault) {
 		this.isDefault = isDefault;
 	}
-	
-	
 }
