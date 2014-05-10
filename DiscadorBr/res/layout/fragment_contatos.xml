@@ -5,23 +5,6 @@
     android:background="#fff"
     android:orientation="vertical" >
 
-    <RelativeLayout
-        android:id="@+id/ContactList"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:background="#000" >
-
-        <Button
-            android:id="@+id/addBtt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            style="@style/buttonBlue"
-            android:text="Novo" />
-
-    </RelativeLayout>
-
     <ListView
         android:id="@+id/listView1"
         android:layout_width="match_parent"

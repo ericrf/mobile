@@ -38,15 +38,6 @@ public class ContatosFragment extends SherlockFragment {
 		getContatos();
 
 		ListView list = (ListView) rootView.findViewById(R.id.listView1);
-		Button addBtt = (Button) rootView.findViewById(R.id.addBtt);
-		addBtt.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				Intent intent = new Intent(Intent.ACTION_INSERT,
-						ContactsContract.Contacts.CONTENT_URI);
-				startActivity(intent);
-			}
-		});
 
 		// Getting adapter by passing xml data ArrayList
 		ContactView adapter = new ContactView(getSherlockActivity(),
