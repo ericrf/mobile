@@ -10,8 +10,8 @@ import com.br.discadorbr.model.Contact;
 public class ContactController {
 
 	public static List<Contact> getContacts(Activity activity) {
-		ContactDao contactDao = new ContactDao(activity);
-		List<Contact> contacts = contactDao.getContacts();
+		ContactDao dao = new ContactDao(activity);
+		List<Contact> contacts = dao.getContacts();
 		return contacts;
 	}
 

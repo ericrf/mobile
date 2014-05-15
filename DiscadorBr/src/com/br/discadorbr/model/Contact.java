@@ -1,5 +1,6 @@
 package com.br.discadorbr.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -15,9 +16,10 @@ public class Contact {
 		this.thumbnail = thumbnail;
 		this.name = name;
 		this.number = number;
+		numbers = new ArrayList<String>();
 	}
 	
 	public Contact() {
-		
+		this(null,null,null,null);
 	}
 }

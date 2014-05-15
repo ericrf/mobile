@@ -6,7 +6,6 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 
 import com.br.discadorbr.fragments.ContatosFragment;
 import com.br.discadorbr.fragments.DiscadorFragment;
-import com.br.discadorbr.fragments.PrefixosFragment;
 
 public class TabsPagerAdapter extends FragmentStatePagerAdapter {
 
@@ -22,9 +21,6 @@ public class TabsPagerAdapter extends FragmentStatePagerAdapter {
 			// Top Rated fragment activity
 			return new DiscadorFragment();
 		case 1:
-			// Games fragment activity
-			return new PrefixosFragment();
-		case 2:
 			// Movies fragment activity
 			return new ContatosFragment();
 		}
@@ -35,7 +31,7 @@ public class TabsPagerAdapter extends FragmentStatePagerAdapter {
 	@Override
 	public int getCount() {
 		// get item count - equal to number of tabs
-		return 3;
+		return 2;
 	}
 
 }

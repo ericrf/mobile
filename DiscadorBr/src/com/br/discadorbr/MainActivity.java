@@ -21,7 +21,7 @@ public class MainActivity extends SherlockFragmentActivity implements
 	private ViewPager viewPager;
 	private TabsPagerAdapter mAdapter;
 	// Tab titles
-	private String[] tabs = { "Discador", "Prefixos", "Contatos" };
+	private String[] tabs = { "Discador", "Contatos" };
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
