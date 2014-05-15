@@ -13,12 +13,12 @@ import android.widget.TextView;
 import com.br.discador.R;
 import com.br.discadorbr.model.Prefixo;
 
-public class PrefixosListViewBaseAdapter extends BaseAdapter {
+public class PrefixoAdapter extends BaseAdapter {
 
 	private List<Prefixo> prefixos;
 	private LayoutInflater inflater;
 	
-	public PrefixosListViewBaseAdapter(Activity activity, List<Prefixo> prefixos) {
+	public PrefixoAdapter(Activity activity, List<Prefixo> prefixos) {
 		this.prefixos = prefixos;
 		this.inflater = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 	}
@@ -42,7 +42,7 @@ public class PrefixosListViewBaseAdapter extends BaseAdapter {
 	public View getView(int position, View convertView, ViewGroup parent) {
 		View vi=convertView;
         if(convertView==null){
-            vi = inflater.inflate(R.layout.prefixos_listview_template, null);
+            vi = inflater.inflate(R.layout.adapter_prefixo, null);
         }
         Prefixo prefixo = (Prefixo) getItem(position);
         TextView txtLabel = (TextView)vi.findViewById(R.id.prefixo_label);

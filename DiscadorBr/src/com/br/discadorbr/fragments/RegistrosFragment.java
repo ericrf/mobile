@@ -14,7 +14,7 @@ import android.widget.ListView;
 
 import com.actionbarsherlock.app.SherlockFragment;
 import com.br.discador.R;
-import com.br.discadorbr.adapter.CallLogView;
+import com.br.discadorbr.adapter.RegistrosAdapter;
 import com.br.discadorbr.model.CallLogSingle;
 
 public class RegistrosFragment extends SherlockFragment {
@@ -32,7 +32,7 @@ public class RegistrosFragment extends SherlockFragment {
 		
 		 ListView contactListView = (ListView) rootView.findViewById(R.id.listView1);
 
-		 CallLogView callLogAdapter = new CallLogView(getSherlockActivity(),
+		 RegistrosAdapter callLogAdapter = new RegistrosAdapter(getSherlockActivity(),
 				 callLogList);
 		 
 		 contactListView.setAdapter(callLogAdapter);
