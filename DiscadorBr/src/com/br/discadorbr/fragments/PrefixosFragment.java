@@ -12,7 +12,7 @@ import android.widget.ListView;
 
 import com.actionbarsherlock.app.SherlockFragment;
 import com.br.discador.R;
-import com.br.discadorbr.adapter.PrefixosListViewBaseAdapter;
+import com.br.discadorbr.adapter.PrefixoAdapter;
 import com.br.discadorbr.dao.PrefixoDao;
 import com.br.discadorbr.fragments.listeners.IncluirPrefixoOnClickListener;
 import com.br.discadorbr.model.Prefixo;
@@ -33,7 +33,7 @@ public class PrefixosFragment extends SherlockFragment {
 		List<Prefixo> prefixos = buscarTodos();
 		
 		ListView prefixosListView = (ListView) view.findViewById(R.id.prefixos);
-		prefixosListView.setAdapter(new PrefixosListViewBaseAdapter(getSherlockActivity(), prefixos));
+		prefixosListView.setAdapter(new PrefixoAdapter(getSherlockActivity(), prefixos));
 		
 		return view;
 		

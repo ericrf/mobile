@@ -14,12 +14,12 @@ import android.widget.TextView;
 import com.br.discador.R;
 import com.br.discadorbr.model.CallLogSingle;
  
-public class CallLogView extends BaseAdapter {
+public class RegistrosAdapter extends BaseAdapter {
     private Activity activity;
     private List<CallLogSingle> callLogList;
     private static LayoutInflater inflater=null; 
  
-    public CallLogView(Activity a, List<CallLogSingle> callLogList) {
+    public RegistrosAdapter(Activity a, List<CallLogSingle> callLogList) {
         activity = a;
         this.callLogList = callLogList;
         inflater = (LayoutInflater)activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -40,7 +40,7 @@ public class CallLogView extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         View vi=convertView;
         if(convertView==null)
-            vi = inflater.inflate(R.layout.call_log, null);
+            vi = inflater.inflate(R.layout.adapter_registros, null);
  
         TextView title = (TextView)vi.findViewById(R.id.title);
         TextView date = (TextView)vi.findViewById(R.id.date);

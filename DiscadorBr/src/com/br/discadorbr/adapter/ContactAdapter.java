@@ -15,13 +15,13 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class ContactView extends BaseAdapter {
+public class ContactAdapter extends BaseAdapter {
 
 	private Activity activity;
 	private List<Contact> list;
 	private static LayoutInflater inflater = null;
 
-	public ContactView(Activity a, List<Contact> contactList) {
+	public ContactAdapter(Activity a, List<Contact> contactList) {
 		activity = a;
 		list = contactList;
 		inflater = (LayoutInflater) activity
@@ -42,7 +42,7 @@ public class ContactView extends BaseAdapter {
 
 	public View getView(int position, View view, ViewGroup parent) {
 		if (view == null) 
-			view = inflater.inflate(R.layout.contact_list, null);
+			view = inflater.inflate(R.layout.adapter_contact, null);
 		
 		TextView contactTextView = (TextView) view.findViewById(R.id.name);
 		TextView numberTextView = (TextView) view.findViewById(R.id.number); 
@@ -52,7 +52,7 @@ public class ContactView extends BaseAdapter {
 
 		// Setting all values in listview
 		contactTextView.setText(contact.name);
-		numberTextView.setText(contact.number);
+		numberTextView.setText(contact.numbers.get(0));
 
 		if (contact.thumbnail != null) {
 			thumbImageView.setImageURI(Uri.parse(contact.thumbnail));
