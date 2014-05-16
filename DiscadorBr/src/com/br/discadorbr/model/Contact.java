@@ -9,7 +9,7 @@ public class Contact {
 	public String name;
 	public String id;
 	public String number;
-	public List<String> numbers;
+	public List<String> numbers= new ArrayList<String>();
 	
 	public Contact(String id, String thumbnail, String name, String number) {
 		this.id = id;
