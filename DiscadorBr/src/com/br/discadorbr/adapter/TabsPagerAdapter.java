@@ -18,19 +18,16 @@ public class TabsPagerAdapter extends FragmentStatePagerAdapter {
 
 		switch (index) {
 		case 0:
-			// Top Rated fragment activity
 			return new DiscadorFragment();
 		case 1:
-			// Movies fragment activity
 			return new ContatosFragment();
+		default:
+			return null;
 		}
-
-		return null;
 	}
 
 	@Override
 	public int getCount() {
-		// get item count - equal to number of tabs
 		return 2;
 	}
 

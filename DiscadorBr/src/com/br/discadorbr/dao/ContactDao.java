@@ -8,25 +8,33 @@ import android.content.ContentResolver;
 import android.database.Cursor;
 import android.provider.BaseColumns;
 import android.provider.ContactsContract;
+import android.util.Log;
 
 import com.br.discadorbr.model.Contact;
 
 public class ContactDao {
+
+	private static ContactDao INSTANCE;
 	private Activity activity;
 	private ContentResolver cr;
 	private List<Contact> contactList = new ArrayList<Contact>();
 
-	public ContactDao(Activity activity) {
+	private ContactDao(Activity activity) {
 		this.activity = activity;
 	}
-	
+
+	public static ContactDao getInstance(Activity activity) {
+		if (INSTANCE == null)
+			INSTANCE = new ContactDao(activity);
+		return INSTANCE;
+	}
+
 	public List<Contact> getContacts() {
 		cr = activity.getContentResolver();
 
 		// obtendo contatos do aparelho
 		Cursor cur = cr.query(ContactsContract.Contacts.CONTENT_URI, null,
 				null, null, null);
-
 		// verificando se resultado da consulta maior que 0
 		if (cur.getCount() > 0) {
 			// iterando resultados
@@ -36,17 +44,31 @@ public class ContactDao {
 		}
 		return contactList;
 	}
-	
-	private void setContactList(Cursor cur) {
 
+	public List<Contact> findContactsByName(String name) {
+		cr = activity.getContentResolver();
+
+		// obtendo contatos do aparelho
+		Cursor cur = cr.query(ContactsContract.Contacts.CONTENT_URI, null,
+				ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME + " LIKE ? COLLATE NOCASE",
+				new String[] { "%"+name+"%" }, null);
+		// verificando se resultado da consulta maior que 0
+		
+		Log.w("DiscadorBR", cur.getCount()+"");
+		if (cur.getCount() > 0) {
+			// iterando resultados
+			while (cur.moveToNext()) {
+				setContactList(cur);
+			}
+		}
+		return contactList;
+	}
+
+	private void setContactList(Cursor cur) {
+		contactList = new ArrayList<Contact>();
 		Contact contact = obtemContact(cur);
 		if (verificaSeCursorPossuiNumeros(cur)) {
-
-			// criando consulta dos números de telefone de um determinado
-			// contato
 			Cursor pCur = buscarNumerosDoContato(cur);
-
-			// iterando numeros de telefone e adicionando a lista de numeros do contato
 			while (pCur.moveToNext()) {
 				contact.numbers.add(obtemNumber(pCur));
 			}
@@ -94,6 +116,5 @@ public class ContactDao {
 		contact.thumbnail = obtemThumbnail(cur);
 		return contact;
 	}
-
 
 }
