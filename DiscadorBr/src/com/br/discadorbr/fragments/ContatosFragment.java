@@ -18,6 +18,9 @@ import com.br.discadorbr.model.Contact;
 
 public class ContatosFragment extends SherlockFragment {
 	private View rootView;
+	public static ListView list;
+	private List<Contact> contacts;
+	public static ContactAdapter adapter;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -26,10 +29,10 @@ public class ContatosFragment extends SherlockFragment {
 		rootView = inflater.inflate(R.layout.fragment_contatos, container,
 				false);
 
-		List<Contact> contacts = ContactDao.getInstance(activity).getContacts();
-		ListView list = (ListView) rootView.findViewById(R.id.listView1);
+		contacts = ContactDao.getInstance(activity).getContacts();
+		list = (ListView) rootView.findViewById(R.id.listView1);
 
-		ContactAdapter adapter = new ContactAdapter(activity, contacts);
+		adapter = new ContactAdapter(activity, contacts);
 
 		list.setAdapter(adapter);
 		list.setOnItemClickListener(new RealizarChamadaOnItemClickListener(

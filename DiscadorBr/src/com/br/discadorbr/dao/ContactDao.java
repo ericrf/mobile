@@ -42,6 +42,10 @@ public class ContactDao {
 				setContactList(cur);
 			}
 		}
+	/*	Log.i("CONTATO", "aaa");
+		for (Contact contact : contactList) {
+			Log.i("CONTATO", "contato " +contact.name + " " + contact.numbers.get(0));
+		} */
 		return contactList;
 	}
 
@@ -56,16 +60,17 @@ public class ContactDao {
 		
 		Log.w("DiscadorBR", cur.getCount()+"");
 		if (cur.getCount() > 0) {
+			contactList = new ArrayList<Contact>();
 			// iterando resultados
 			while (cur.moveToNext()) {
 				setContactList(cur);
 			}
 		}
+		Log.i("CONTATO", "find by name");
 		return contactList;
 	}
 
 	private void setContactList(Cursor cur) {
-		contactList = new ArrayList<Contact>();
 		Contact contact = obtemContact(cur);
 		if (verificaSeCursorPossuiNumeros(cur)) {
 			Cursor pCur = buscarNumerosDoContato(cur);
@@ -73,7 +78,9 @@ public class ContactDao {
 				contact.numbers.add(obtemNumber(pCur));
 			}
 			// add contato a lista
+		//	Log.i("setContact", contact.name);
 			contactList.add(contact);
+			
 			pCur.close();
 		}
 	}

@@ -34,10 +34,13 @@ public class DiscadorFragment extends Fragment {
 		}
 
 		ImageButton buttonUndo = (ImageButton) rootView.findViewById(R.id.buttonUndo);
-		buttonUndo.setOnClickListener(new RemoverNumeroParaLicagaoOnClickListener(rootView));
+		ImageButton buttonCall = (ImageButton) rootView.findViewById(R.id.buttonCall);
 		
+		
+		buttonUndo.setOnClickListener(new RemoverNumeroParaLicagaoOnClickListener(rootView));
 		Button buttonCobrar = (Button) rootView.findViewById(R.id.buttonCobrar);
-		buttonCobrar.setOnClickListener(new RealizarChamadaOnClickListener(getActivity(), rootView));
+		buttonCobrar.setOnClickListener(new RealizarChamadaOnClickListener(getActivity(), rootView, false));
+		buttonCall.setOnClickListener(new RealizarChamadaOnClickListener(getActivity(), rootView, true));
 
 		return rootView;
 	}	

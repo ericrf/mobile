@@ -11,10 +11,12 @@ public class RealizarChamadaOnClickListener implements OnClickListener {
 
 	private View view;
 	private Activity activity;
+	private boolean hasPrefix;
 
-	public RealizarChamadaOnClickListener(Activity activity, View view) {
+	public RealizarChamadaOnClickListener(Activity activity, View view, boolean hasPrefix) {
 		this.activity = activity;
 		this.view = view;
+		this.hasPrefix = hasPrefix;
 	}
 
 	@Override
@@ -24,7 +26,12 @@ public class RealizarChamadaOnClickListener implements OnClickListener {
 
 		String numero = numeroTextView.getText().toString().trim();
 		if (numero.length() != 0 && numero.length() >= 3) {
-			RealizadorDeChamadas.callContact(activity, numero);
+			if (!hasPrefix) {
+				RealizadorDeChamadas.callContact(activity, numero);
+			}
+			else {
+				RealizadorDeChamadas.callContact(activity, numero, "");
+			}
 		}
 	}
 

@@ -2,26 +2,23 @@ package com.br.discadorbr.fragments.listeners;
 
 import java.util.List;
 
-import com.br.discador.R;
-import com.br.discadorbr.adapter.ContactAdapter;
-import com.br.discadorbr.dao.ContactDao;
-import com.br.discadorbr.model.Contact;
-
 import android.app.Activity;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.View;
-import android.widget.ListView;
+import android.util.Log;
+import android.widget.BaseAdapter;
+
+import com.br.discadorbr.adapter.ContactAdapter;
+import com.br.discadorbr.dao.ContactDao;
+import com.br.discadorbr.fragments.ContatosFragment;
+import com.br.discadorbr.model.Contact;
 
 public class BuscaContatosTextWatcher implements TextWatcher {
 
 	private Activity activity;
-	private View rootView;
 
-	public BuscaContatosTextWatcher(Activity activity, View rootView) {
+	public BuscaContatosTextWatcher(Activity activity) {
 		this.activity = activity;
-		this.rootView = rootView;
-	
 	}
 	@Override
 	public void beforeTextChanged(CharSequence s, int start, int count,
@@ -30,18 +27,21 @@ public class BuscaContatosTextWatcher implements TextWatcher {
 
 	@Override
 	public void onTextChanged(CharSequence s, int start, int before, int count) {
-		List<Contact> contacts = ContactDao.getInstance(activity).getContacts();
-		ListView list = (ListView) rootView.findViewById(R.id.listView1);
-		
-		ContactAdapter adapter = new ContactAdapter(activity, contacts);
 
-		list.setAdapter(adapter);
-		list.setOnItemClickListener(new RealizarChamadaOnItemClickListener(
-				activity, contacts));
 	}
 
 	@Override
 	public void afterTextChanged(Editable s) {
+		// passei os metodos pra ca por que gasta menos recursos
+		List<Contact> contacts = ContactDao.getInstance(activity).findContactsByName(s.toString());
+		Log.i("search", s.toString());
+		
+		ContactAdapter adapter = new ContactAdapter(activity, contacts);
+
+		ContatosFragment.list.setAdapter(adapter);
+
+		ContatosFragment.list.setOnItemClickListener(new RealizarChamadaOnItemClickListener(
+				activity, contacts));
 	}
 
 }
