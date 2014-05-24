@@ -5,8 +5,6 @@ import java.util.List;
 import android.app.Activity;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
-import android.widget.BaseAdapter;
 
 import com.br.discadorbr.adapter.ContactAdapter;
 import com.br.discadorbr.dao.ContactDao;
@@ -34,8 +32,6 @@ public class BuscaContatosTextWatcher implements TextWatcher {
 	public void afterTextChanged(Editable s) {
 		// passei os metodos pra ca por que gasta menos recursos
 		List<Contact> contacts = ContactDao.getInstance(activity).findContactsByName(s.toString());
-		Log.i("search", s.toString());
-		
 		ContactAdapter adapter = new ContactAdapter(activity, contacts);
 
 		ContatosFragment.list.setAdapter(adapter);

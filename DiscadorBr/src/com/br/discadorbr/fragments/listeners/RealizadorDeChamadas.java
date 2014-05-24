@@ -25,7 +25,7 @@ public class RealizadorDeChamadas {
 	}
 	
 	public static void callContact(Activity activity, String numero,String prefixo) {
-		String s = "tel: " + prefixo == null ? "" : PREFIXO + formatarNumero(numero);
+		String s = "tel: " + prefixo + formatarNumero(numero);
 		activity.startActivity(new Intent(Intent.ACTION_CALL, Uri.parse(s)));
 	}
 }

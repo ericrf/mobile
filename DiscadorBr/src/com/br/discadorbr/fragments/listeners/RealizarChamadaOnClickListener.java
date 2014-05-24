@@ -27,9 +27,8 @@ public class RealizarChamadaOnClickListener implements OnClickListener {
 		String numero = numeroTextView.getText().toString().trim();
 		if (numero.length() != 0 && numero.length() >= 3) {
 			if (!hasPrefix) {
-				RealizadorDeChamadas.callContact(activity, numero);
-			}
-			else {
+				RealizadorDeChamadas.callContact(activity, numero,"9090");
+			} else {
 				RealizadorDeChamadas.callContact(activity, numero, "");
 			}
 		}
