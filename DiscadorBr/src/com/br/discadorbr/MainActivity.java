@@ -49,7 +49,7 @@ public class MainActivity extends SherlockFragmentActivity implements
 		// auto explicativo
 		searchText.addTextChangedListener(new BuscaContatosTextWatcher(
 				MainActivity.this));
-
+		
 		return true;
 	}
 
@@ -68,7 +68,6 @@ public class MainActivity extends SherlockFragmentActivity implements
 
 		actionBar.setHomeButtonEnabled(true);
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
-
 		// Adding Tabs
 		for (String tab_name : tabs) {
 			actionBar.addTab(actionBar.newTab().setText(tab_name)

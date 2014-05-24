@@ -4,7 +4,9 @@ import java.util.List;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
+import android.os.Vibrator;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -38,6 +40,9 @@ public class RealizarChamadaOnItemClickListener implements OnItemClickListener {
 			showNumberListDialog(contacts.get(position));
 		}
 		
+		Vibrator vibrator = (Vibrator) activity.getSystemService(Context.VIBRATOR_SERVICE);
+		vibrator.vibrate(50L);
+		
 	}
 	
 	
@@ -53,6 +58,9 @@ public class RealizarChamadaOnItemClickListener implements OnItemClickListener {
 		builder.setSingleChoiceItems(adapter, 0,
 				new DialogInterface.OnClickListener() {
 					public void onClick(DialogInterface arg0, int arg1) {
+						Vibrator vibrator = (Vibrator) activity.getSystemService(Context.VIBRATOR_SERVICE);
+						vibrator.vibrate(50L);
+						
 						Toast.makeText(activity,
 								"posição selecionada=" + arg1,
 								Toast.LENGTH_SHORT).show();

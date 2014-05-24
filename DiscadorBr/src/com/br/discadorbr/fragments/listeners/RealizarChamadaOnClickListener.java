@@ -1,6 +1,8 @@
 package com.br.discadorbr.fragments.listeners;
 
 import android.app.Activity;
+import android.content.Context;
+import android.os.Vibrator;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
@@ -21,6 +23,8 @@ public class RealizarChamadaOnClickListener implements OnClickListener {
 
 	@Override
 	public void onClick(View v) {
+		Vibrator vibrator = (Vibrator) activity.getSystemService(Context.VIBRATOR_SERVICE);
+		vibrator.vibrate(50L);
 		TextView numeroTextView = (TextView) view
 				.findViewById(R.id.numberToCall);
 

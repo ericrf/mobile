@@ -30,14 +30,14 @@ public class DiscadorFragment extends Fragment {
 		
 		for (int i = 0; i < buttons.length; i++) {
 			Button buttonNum = (Button) rootView.findViewById(buttons[i]);
-			buttonNum.setOnClickListener(new AdicionarNumeroParaLigacaoOnClickListener(rootView));
+			buttonNum.setOnClickListener(new AdicionarNumeroParaLigacaoOnClickListener(getActivity(), rootView));
 		}
 
 		ImageButton buttonUndo = (ImageButton) rootView.findViewById(R.id.buttonUndo);
 		ImageButton buttonCall = (ImageButton) rootView.findViewById(R.id.buttonCall);
 		
 		
-		buttonUndo.setOnClickListener(new RemoverNumeroParaLicagaoOnClickListener(rootView));
+		buttonUndo.setOnClickListener(new RemoverNumeroParaLicagaoOnClickListener(getActivity(),rootView));
 		Button buttonCobrar = (Button) rootView.findViewById(R.id.buttonCobrar);
 		buttonCobrar.setOnClickListener(new RealizarChamadaOnClickListener(getActivity(), rootView, false));
 		buttonCall.setOnClickListener(new RealizarChamadaOnClickListener(getActivity(), rootView, true));
