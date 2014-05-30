@@ -2,10 +2,10 @@ package com.br.discadorbr.fragments.listeners;
 
 import java.util.List;
 
-import android.app.Activity;
 import android.text.Editable;
 import android.text.TextWatcher;
 
+import com.br.discadorbr.MainActivity;
 import com.br.discadorbr.adapter.ContactAdapter;
 import com.br.discadorbr.dao.ContactDao;
 import com.br.discadorbr.fragments.ContatosFragment;
@@ -13,9 +13,9 @@ import com.br.discadorbr.model.Contact;
 
 public class BuscaContatosTextWatcher implements TextWatcher {
 
-	private Activity activity;
+	private MainActivity activity;
 
-	public BuscaContatosTextWatcher(Activity activity) {
+	public BuscaContatosTextWatcher(MainActivity activity) {
 		this.activity = activity;
 	}
 	@Override

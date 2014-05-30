@@ -49,7 +49,7 @@ public class ContactDao {
 		cr = activity.getContentResolver();
 		// obtendo contatos do aparelho
 		Cursor cur = cr.query(ContactsContract.Contacts.CONTENT_URI, null,
-				null, null, null);
+				null, null, ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME + " ASC");
 		// verificando se resultado da consulta maior que 0
 		if (cur.getCount() > 0) {
 			// iterando resultados
@@ -78,7 +78,7 @@ public class ContactDao {
 		Cursor cur = cr.query(ContactsContract.Contacts.CONTENT_URI, null,
 				ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME
 						+ " LIKE ? COLLATE NOCASE", new String[] { "%" + name
-						+ "%" }, null);
+						+ "%" }, ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME + " ASC");
 		// verificando se resultado da consulta maior que 0
 		if (cur.getCount() > 0) {
 			contactList = new ArrayList<Contact>();

@@ -1,6 +1,5 @@
 package com.br.discadorbr.fragments.listeners;
 
-import android.app.Activity;
 import android.content.Context;
 import android.os.Vibrator;
 import android.view.View;
@@ -8,14 +7,16 @@ import android.view.View.OnClickListener;
 import android.widget.TextView;
 
 import com.br.discador.R;
+import com.br.discadorbr.MainActivity;
 
 public class RealizarChamadaOnClickListener implements OnClickListener {
 
 	private View view;
-	private Activity activity;
+	private MainActivity activity;
 	private boolean hasPrefix;
+	private String numero;
 
-	public RealizarChamadaOnClickListener(Activity activity, View view, boolean hasPrefix) {
+	public RealizarChamadaOnClickListener(MainActivity activity, View view, boolean hasPrefix) {
 		this.activity = activity;
 		this.view = view;
 		this.hasPrefix = hasPrefix;
@@ -27,15 +28,16 @@ public class RealizarChamadaOnClickListener implements OnClickListener {
 		vibrator.vibrate(50L);
 		TextView numeroTextView = (TextView) view
 				.findViewById(R.id.numberToCall);
-
-		String numero = numeroTextView.getText().toString().trim();
+		numero = numeroTextView.getText().toString().trim();
 		if (numero.length() != 0 && numero.length() >= 3) {
 			if (!hasPrefix) {
-				RealizadorDeChamadas.callContact(activity, numero,"9090");
+				RealizadorDeChamadas.detectPrefixo(activity, numero);
 			} else {
 				RealizadorDeChamadas.callContact(activity, numero, "");
 			}
 		}
 	}
+	
+
 
 }

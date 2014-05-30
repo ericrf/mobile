@@ -1,8 +1,11 @@
 package com.br.discadorbr.fragments.listeners;
 
+import com.br.discadorbr.MainActivity;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
+import android.util.Log;
 
 public class RealizadorDeChamadas {
 
@@ -28,4 +31,15 @@ public class RealizadorDeChamadas {
 		String s = "tel: " + prefixo + formatarNumero(numero);
 		activity.startActivity(new Intent(Intent.ACTION_CALL, Uri.parse(s)));
 	}
+	
+	public static void detectPrefixo(MainActivity activity, String number) {
+		if (activity.getDefaultPrefixo() == null) {
+			activity.createNewPrefixoDefaultDialog(number);
+			Log.w("number", "number");
+		}
+		else {
+			RealizadorDeChamadas.callContact(activity, number, activity.getDefaultPrefixo());
+		}
+	}
+	
 }

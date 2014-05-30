@@ -11,9 +11,11 @@ import android.widget.ListView;
 
 import com.actionbarsherlock.app.SherlockFragment;
 import com.br.discador.R;
+import com.br.discadorbr.MainActivity;
 import com.br.discadorbr.adapter.ContactAdapter;
 import com.br.discadorbr.dao.ContactDao;
 import com.br.discadorbr.fragments.listeners.RealizarChamadaOnItemClickListener;
+import com.br.discadorbr.fragments.listeners.RealizarChamadaOnItemLongClickListener;
 import com.br.discadorbr.model.Contact;
 
 public class ContatosFragment extends SherlockFragment {
@@ -36,6 +38,8 @@ public class ContatosFragment extends SherlockFragment {
 
 		list.setAdapter(adapter);
 		list.setOnItemClickListener(new RealizarChamadaOnItemClickListener(
+				((MainActivity)activity), contacts));
+		list.setOnItemLongClickListener(new RealizarChamadaOnItemLongClickListener(
 				activity, contacts));
 
 		return rootView;

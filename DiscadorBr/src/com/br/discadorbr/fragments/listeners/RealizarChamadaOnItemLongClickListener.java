@@ -2,52 +2,49 @@ package com.br.discadorbr.fragments.listeners;
 
 import java.util.List;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Vibrator;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
+import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import com.br.discador.R;
-import com.br.discadorbr.MainActivity;
 import com.br.discadorbr.model.Contact;
 
-public class RealizarChamadaOnItemClickListener implements OnItemClickListener {
+public class RealizarChamadaOnItemLongClickListener implements OnItemLongClickListener {
 
 	
-	private MainActivity activity;
+	private Activity activity;
 	private List<Contact> contacts;
 	private AlertDialog contactNumberListAlert;
 	
-	public RealizarChamadaOnItemClickListener(MainActivity activity, List<Contact> contacts) {
+	public RealizarChamadaOnItemLongClickListener(Activity activity, List<Contact> contacts) {
 		this.activity = activity;
 		this.contacts = contacts;
-	}
 	
+	}
+
 	@Override
-	public void onItemClick(AdapterView<?> parent, View view, int position,
+	public boolean onItemLongClick(AdapterView<?> adapter, View view, int position,
 			long id) {
 		if (contacts.get(position).numbers.size() == 1) {
-			String numero = contacts.get(position).numbers.get(0);
-			
-			RealizadorDeChamadas.detectPrefixo(activity, numero);
-			
+			RealizadorDeChamadas.callContact(activity,
+					contacts.get(position).numbers.get(0), "");
 		} else {
 			showNumberListDialog(contacts.get(position));
 		}
 		
 		Vibrator vibrator = (Vibrator) activity.getSystemService(Context.VIBRATOR_SERVICE);
 		vibrator.vibrate(50L);
-		
+		return true;
 	}
 	
-	
-	@SuppressWarnings("unchecked")
 	private void showNumberListDialog(Contact contato) {
 
 		@SuppressWarnings("rawtypes")
@@ -71,10 +68,9 @@ public class RealizarChamadaOnItemClickListener implements OnItemClickListener {
 						
 						String numberSelected = alertDialogList.getAdapter()
 								.getItem(arg1).toString(); 
-						
-						RealizadorDeChamadas.detectPrefixo(activity, numberSelected);
 
-					
+						RealizadorDeChamadas.callContact(activity,
+								numberSelected, "");
 						
 						contactNumberListAlert.dismiss(); 
 					}
@@ -82,7 +78,6 @@ public class RealizarChamadaOnItemClickListener implements OnItemClickListener {
 		contactNumberListAlert = builder.create();
 		contactNumberListAlert.show();
 	}
-	
 
 
 	

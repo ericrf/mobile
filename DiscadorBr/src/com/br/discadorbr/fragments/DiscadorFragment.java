@@ -1,6 +1,8 @@
 package com.br.discadorbr.fragments;
 
+import android.content.Context;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +11,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 
 import com.br.discador.R;
+import com.br.discadorbr.MainActivity;
 import com.br.discadorbr.fragments.listeners.AdicionarNumeroParaLigacaoOnClickListener;
 import com.br.discadorbr.fragments.listeners.RealizarChamadaOnClickListener;
 import com.br.discadorbr.fragments.listeners.RemoverNumeroParaLicagaoOnClickListener;
@@ -39,9 +42,20 @@ public class DiscadorFragment extends Fragment {
 		
 		buttonUndo.setOnClickListener(new RemoverNumeroParaLicagaoOnClickListener(getActivity(),rootView));
 		Button buttonCobrar = (Button) rootView.findViewById(R.id.buttonCobrar);
-		buttonCobrar.setOnClickListener(new RealizarChamadaOnClickListener(getActivity(), rootView, false));
-		buttonCall.setOnClickListener(new RealizarChamadaOnClickListener(getActivity(), rootView, true));
+		buttonCobrar.setOnClickListener(new RealizarChamadaOnClickListener((MainActivity)getActivity(), rootView, false));
+		buttonCall.setOnClickListener(new RealizarChamadaOnClickListener((MainActivity)getActivity(), rootView, true));
+		
+		buttonCobrar.setOnLongClickListener(new View.OnLongClickListener() {
 
+	        @Override
+	        public boolean onLongClick(View v) {
+	    		Vibrator vibrator = (Vibrator) getActivity().getSystemService(Context.VIBRATOR_SERVICE);
+	    		vibrator.vibrate(50L);
+	        	((MainActivity)getActivity()).createNewPrefixoDefaultDialog(null);
+	            return true;
+	        }
+	    });
+		
 		return rootView;
 	}	
 }

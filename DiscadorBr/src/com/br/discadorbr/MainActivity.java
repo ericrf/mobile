@@ -1,11 +1,19 @@
 package com.br.discadorbr;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
+import android.text.InputType;
 import android.view.View;
 import android.view.View.OnFocusChangeListener;
+import android.view.WindowManager;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.ActionBar.Tab;
@@ -15,6 +23,7 @@ import com.actionbarsherlock.view.MenuItem;
 import com.br.discador.R;
 import com.br.discadorbr.adapter.TabsPagerAdapter;
 import com.br.discadorbr.fragments.listeners.BuscaContatosTextWatcher;
+import com.br.discadorbr.fragments.listeners.RealizadorDeChamadas;
 
 public class MainActivity extends SherlockFragmentActivity implements
 		ActionBar.TabListener {
@@ -108,5 +117,53 @@ public class MainActivity extends SherlockFragmentActivity implements
 	public void onTabUnselected(Tab tab, FragmentTransaction transaction) {
 
 	}
+	
+	public void createNewPrefixoDefaultDialog(String num) {
+		final EditText input = new EditText(getApplicationContext());
+		input.setInputType(InputType.TYPE_CLASS_NUMBER);
+		input.setTextColor(Color.BLACK);
+		final String numero = num;
+		
+		// Show new folder name input dialog
+		new AlertDialog.Builder(MainActivity.this)
+		.setTitle("Prefixo").setView(input)
+				.setMessage("Escolha o prefixo a cobrar padrão da sua cidade. Aperte e segure este botão novamente para mudar.")
+				.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+					@Override
+					public void onClick(DialogInterface dialog, int whichButton) {
+						String prefixoDefault = input.getText().toString();
+						if (isValidDefaultPrefixo(prefixoDefault)) {
+							saveDefaultPrefixo(prefixoDefault, numero);
+						}
+						else {
+							Toast.makeText(MainActivity.this, "Prefixo invalido, insira outro", Toast.LENGTH_SHORT).show();
+						}
+					}
+				}).setNegativeButton("Cancelar", null).show().getWindow().setSoftInputMode (WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);;
+		
+		
+	}
+	
+	public void saveDefaultPrefixo(String prefixoDefault, String numero) {
+		SharedPreferences pref = getApplicationContext().getSharedPreferences("MyPref", 0); // 0 - for private mode
+		Editor editor = pref.edit();
+		editor.putString("prefixoSalvo", prefixoDefault);
+		editor.commit();
+		if (numero != null) {
+			RealizadorDeChamadas.callContact(this, numero, getDefaultPrefixo());
+		}
+		
+	}
+	
+	public String getDefaultPrefixo() {
+		SharedPreferences pref = getApplicationContext().getSharedPreferences("MyPref", 0);
+		String prefixoSalvo = pref.getString("prefixoSalvo", null);
+		return prefixoSalvo;
+	}
+	
+    private boolean isValidDefaultPrefixo(String prefixoDefault) {
+    	prefixoDefault = prefixoDefault.replaceAll( "[^\\d]", "" ).trim();
+    	return prefixoDefault.length() > 0 ? true : false;
+    }
 
 }
