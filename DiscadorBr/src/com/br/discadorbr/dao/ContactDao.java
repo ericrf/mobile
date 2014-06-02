@@ -46,6 +46,7 @@ public class ContactDao {
 	 * @return lista de contatos do usuário 
 	 */
 	public List<Contact> getContacts() {
+		contactList = new ArrayList<Contact>();
 		cr = activity.getContentResolver();
 		// obtendo contatos do aparelho
 		Cursor cur = cr.query(ContactsContract.Contacts.CONTENT_URI, null,
@@ -72,6 +73,7 @@ public class ContactDao {
 	 * @return Lista de Contatos
 	 */
 	public List<Contact> findContactsByName(String name) {
+		contactList = new ArrayList<Contact>();
 		cr = activity.getContentResolver();
 
 		// obtendo contatos do aparelho

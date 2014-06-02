@@ -52,6 +52,7 @@ public class ContactAdapter extends BaseAdapter {
 
 		// Setting all values in listview
 		contactTextView.setText(contact.name);
+		if (contact.numbers.size() > 0)
 		numberTextView.setText(contact.numbers.get(0));
 
 		if (contact.thumbnail != null) {
