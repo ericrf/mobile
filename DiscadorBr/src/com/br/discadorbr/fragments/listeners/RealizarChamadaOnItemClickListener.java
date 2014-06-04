@@ -35,7 +35,8 @@ public class RealizarChamadaOnItemClickListener implements OnItemClickListener {
 		if (contacts.get(position).numbers.size() == 1) {
 			String numero = contacts.get(position).numbers.get(0);
 			
-			RealizadorDeChamadas.detectPrefixo(activity, numero);
+			//RealizadorDeChamadas.detectPrefixo(activity, numero);
+			RealizadorDeChamadas.callContact(activity, numero);
 			
 		} else {
 			showNumberListDialog(contacts.get(position));

@@ -1,8 +1,6 @@
 package com.br.discadorbr.fragments;
 
-import android.content.Context;
 import android.os.Bundle;
-import android.os.Vibrator;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -45,7 +43,7 @@ public class DiscadorFragment extends Fragment {
 		buttonCobrar.setOnClickListener(new RealizarChamadaOnClickListener((MainActivity)getActivity(), rootView, false));
 		buttonCall.setOnClickListener(new RealizarChamadaOnClickListener((MainActivity)getActivity(), rootView, true));
 		
-		buttonCobrar.setOnLongClickListener(new View.OnLongClickListener() {
+	/*	buttonCobrar.setOnLongClickListener(new View.OnLongClickListener() {
 
 	        @Override
 	        public boolean onLongClick(View v) {
@@ -54,7 +52,7 @@ public class DiscadorFragment extends Fragment {
 	        	((MainActivity)getActivity()).createNewPrefixoDefaultDialog(null);
 	            return true;
 	        }
-	    });
+	    }); */
 		
 		return rootView;
 	}	
